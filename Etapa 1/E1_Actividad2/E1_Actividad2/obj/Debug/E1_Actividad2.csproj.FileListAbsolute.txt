@@ -1,0 +1,8 @@
+C:\Users\danie\Documents\CapacitacionCDIS.Net\Etapa 1\E1_Actividad2\E1_Actividad2\bin\Debug\E1_Actividad2.exe.config
+C:\Users\danie\Documents\CapacitacionCDIS.Net\Etapa 1\E1_Actividad2\E1_Actividad2\bin\Debug\E1_Actividad2.exe
+C:\Users\danie\Documents\CapacitacionCDIS.Net\Etapa 1\E1_Actividad2\E1_Actividad2\bin\Debug\E1_Actividad2.pdb
+C:\Users\danie\Documents\CapacitacionCDIS.Net\Etapa 1\E1_Actividad2\E1_Actividad2\obj\Debug\E1_Actividad2.csproj.AssemblyReference.cache
+C:\Users\danie\Documents\CapacitacionCDIS.Net\Etapa 1\E1_Actividad2\E1_Actividad2\obj\Debug\E1_Actividad2.csproj.SuggestedBindingRedirects.cache
+C:\Users\danie\Documents\CapacitacionCDIS.Net\Etapa 1\E1_Actividad2\E1_Actividad2\obj\Debug\E1_Actividad2.csproj.CoreCompileInputs.cache
+C:\Users\danie\Documents\CapacitacionCDIS.Net\Etapa 1\E1_Actividad2\E1_Actividad2\obj\Debug\E1_Actividad2.exe
+C:\Users\danie\Documents\CapacitacionCDIS.Net\Etapa 1\E1_Actividad2\E1_Actividad2\obj\Debug\E1_Actividad2.pdb

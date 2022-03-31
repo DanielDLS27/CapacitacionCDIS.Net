@@ -8,29 +8,31 @@ namespace Actividad_3
 {
     internal class Estudiante
     {
-        private string matricula;
-        private string nombre;
-        private int edad;
-        private string password;
+        protected string Matricula;
+        protected string Nombre;
+        protected int Edad;
+        protected string Password;
+        protected double CuotaEscolar;
 
         public Estudiante()
         {
-
+            this.CuotaEscolar = 0;
         }
 
-        public Estudiante(string matricula, string nombre, int edad)
+        public Estudiante(string Matricula, string Nombre, int Edad, double CuotaEscolar)
         {
-            this.matricula = matricula;
-            this.nombre = nombre;
-            asignarEdad(edad);
-            this.password = asignarPassword();
+            this.Matricula = Matricula;
+            this.Nombre = Nombre;
+            asignarEdad(Edad);
+            this.Password = asignarPassword();
+            this.CuotaEscolar = CuotaEscolar;
         }
 
-        public void asignarEdad(int edad)
+        public void asignarEdad(int Edad)
         {
-            if(edad >= 15 && edad <= 90)
+            if(Edad >= 15 && Edad <= 90)
             {
-                this.edad = edad;
+                this.Edad = Edad;
             }
             else
             {
@@ -53,12 +55,19 @@ namespace Actividad_3
             return resultString;
         }
 
-        public string mostrarDatos()
+        public virtual string mostrarDatos()
         {
-            return "Matricula: "+this.matricula+"\n"+
-                    "Nombre: "+this.nombre+"\n"+
-                    "Edad: "+edad+"\n"+
-                    "Password: " + this.password+"\n";
+            return "Matricula: " + this.Matricula + "\n" +
+                    "Nombre: " + this.Nombre + "\n" +
+                    "Edad: " + Edad + "\n" +
+                    "Password: " + this.Password + "\n" +
+                    "Cuota Escolar: " + this.CuotaEscolar + "\n";
+        }
+
+        public virtual void asignarBeca(int porcentaje)
+        {
+            var resultado1 = Convert.ToDouble(porcentaje);
+            this.CuotaEscolar = CuotaEscolar - ((resultado1 * CuotaEscolar) / 100);
         }
     }
 }

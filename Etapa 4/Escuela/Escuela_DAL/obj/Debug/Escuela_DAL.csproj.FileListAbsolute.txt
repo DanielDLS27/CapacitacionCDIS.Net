@@ -1,0 +1,6 @@
+C:\Users\danie\Documents\CapacitacionCDIS.Net\Etapa 4\Escuela\Escuela_DAL\bin\Debug\Escuela_DAL.dll
+C:\Users\danie\Documents\CapacitacionCDIS.Net\Etapa 4\Escuela\Escuela_DAL\bin\Debug\Escuela_DAL.pdb
+C:\Users\danie\Documents\CapacitacionCDIS.Net\Etapa 4\Escuela\Escuela_DAL\obj\Debug\Escuela_DAL.csproj.AssemblyReference.cache
+C:\Users\danie\Documents\CapacitacionCDIS.Net\Etapa 4\Escuela\Escuela_DAL\obj\Debug\Escuela_DAL.csproj.CoreCompileInputs.cache
+C:\Users\danie\Documents\CapacitacionCDIS.Net\Etapa 4\Escuela\Escuela_DAL\obj\Debug\Escuela_DAL.dll
+C:\Users\danie\Documents\CapacitacionCDIS.Net\Etapa 4\Escuela\Escuela_DAL\obj\Debug\Escuela_DAL.pdb

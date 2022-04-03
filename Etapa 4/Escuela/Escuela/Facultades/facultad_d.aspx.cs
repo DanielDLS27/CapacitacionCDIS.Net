@@ -10,7 +10,7 @@ using Escuela_BLL;
 
 namespace Escuela.Facultades
 {
-    public partial class facultad_d : System.Web.UI.Page
+    public partial class facultad_d : System.Web.UI.Page, IAcceso
     {
         #region Eventos
 
@@ -18,9 +18,16 @@ namespace Escuela.Facultades
         {
             if (!IsPostBack)
             {
-                string codigo = Request.QueryString["pCodigo"];
-                cargarUniversidades();
-                cargarFacultad(codigo);
+                if (sesionIniciada())
+                {
+                    string codigo = Request.QueryString["pCodigo"];
+                    cargarUniversidades();
+                    cargarFacultad(codigo);
+                }
+                else
+                {
+                    Response.Redirect("~/Login.aspx");
+                }
             }
         }
 
@@ -73,8 +80,20 @@ namespace Escuela.Facultades
             facuBLL.eliminarFacultad(idFacultad);
         }
 
+        public bool sesionIniciada()
+        {
+            if (Session["Usuario"] != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         #endregion
 
-        
+
     }
 }

@@ -5,7 +5,17 @@
       "ProjectGuid": "1dba633f-23c5-49fc-ab47-d26dc2610dd4",
       "DisplayName": "Escuela",
       "ColorIndex": 0
+    },
+    "d228bc1e-bac0-431f-becb-ed8bcba31ff2": {
+      "ProjectGuid": "d228bc1e-bac0-431f-becb-ed8bcba31ff2",
+      "DisplayName": "Escuela_DAL",
+      "ColorIndex": 1
+    },
+    "e014ecd9-6dfe-4827-bb5d-f4eb1577c4da": {
+      "ProjectGuid": "e014ecd9-6dfe-4827-bb5d-f4eb1577c4da",
+      "DisplayName": "Escuela_BLL",
+      "ColorIndex": 2
     }
   },
-  "NextColorIndex": 1
+  "NextColorIndex": 3
 }

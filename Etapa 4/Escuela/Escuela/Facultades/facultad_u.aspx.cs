@@ -10,16 +10,23 @@ using Escuela_BLL;
 
 namespace Escuela.Facultades
 {
-    public partial class facultad_u : System.Web.UI.Page
+    public partial class facultad_u : System.Web.UI.Page, IAcceso
     {
         #region Eventos
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                string codigo = Request.QueryString["pCodigo"];
-                cargarUniversidades();
-                cargarFacultad(codigo);
+                if (sesionIniciada())
+                {
+                    string codigo = Request.QueryString["pCodigo"];
+                    cargarUniversidades();
+                    cargarFacultad(codigo);
+                }
+                else
+                {
+                    Response.Redirect("~/Login.aspx");
+                }
             }
         }
 
@@ -74,6 +81,18 @@ namespace Escuela.Facultades
             int universidad = int.Parse(ddlUniversidad.SelectedValue);
 
             facuBLL.modificarFacultad(idFacultad, codigo, nombre, fechaCreacion, universidad);
+        }
+
+        public bool sesionIniciada()
+        {
+            if (Session["Usuario"] != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         #endregion

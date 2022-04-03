@@ -19,7 +19,34 @@ namespace Escuela_BLL
         public void agregarFacultad(string codigo, string nombre, DateTime fechaCreacion, int universidad)
         {
             FacultadDAL facultad = new FacultadDAL();
-            facultad.agregarFacultad(codigo, nombre, fechaCreacion, universidad);
+            DataTable dtFacultad = new DataTable();
+
+            dtFacultad = cargarFacultad(codigo);
+
+            if(dtFacultad.Rows.Count > 0)
+            {
+                throw new Exception("El codigo de la facultad ya existe, introduce un codigo diferente");
+            }
+            else
+            {
+                int creacion = DateTime.Now.Year - fechaCreacion.Year;
+
+                if(creacion > 122)
+                {
+                    throw new Exception("Fecha no permitida, introduce una fecha mayor a 1900");
+                }
+                else if(creacion < 12)
+                {
+                    throw new Exception("Fecha no permitida, introduce una fecha menor a 2010");
+                }
+                else
+                {
+                    facultad.agregarFacultad(codigo, nombre, fechaCreacion, universidad);
+                }
+
+                
+            }
+            
         }
 
         public DataTable cargarFacultad(string codigo)

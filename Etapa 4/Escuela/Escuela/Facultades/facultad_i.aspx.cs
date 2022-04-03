@@ -10,14 +10,22 @@ using Escuela_BLL;
 
 namespace Escuela.Facultades
 {
-    public partial class facultad_i : System.Web.UI.Page
+    public partial class facultad_i : System.Web.UI.Page, IAcceso
     {
         #region Eventos
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                cargarUniversidades();
+                if (sesionIniciada())
+                {
+                    cargarUniversidades();
+                    cargarTabla();
+                }
+                else
+                {
+                    Response.Redirect("~/Login.aspx");
+                }
             }
         }
 
@@ -40,7 +48,22 @@ namespace Escuela.Facultades
             DateTime fechaCreacion = Convert.ToDateTime(txtFechaCreacion.Text);
             int universidad = int.Parse(ddlUniversidad.SelectedValue);
 
-            facuBLL.agregarFacultad(codigo, nombre, fechaCreacion, universidad);
+            try
+            {
+                facuBLL.agregarFacultad(codigo, nombre, fechaCreacion, universidad);
+                limpiarCampos();
+
+                DataTable dtFacultades = new DataTable();
+                dtFacultades = (DataTable)ViewState["tablaFacultades"];
+                dtFacultades.Rows.Add(codigo, nombre);
+
+                grd_facultades.DataSource = dtFacultades;
+                grd_facultades.DataBind();
+            }
+            catch (Exception ex)
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Alta", "alert('" + ex.Message + "')", true);
+            }
         }
 
         public void cargarUniversidades()
@@ -57,6 +80,36 @@ namespace Escuela.Facultades
 
             ddlUniversidad.Items.Insert(0, new ListItem("---- Seleccione Universidad ----", "0"));
             
+        }
+
+        public void limpiarCampos()
+        {
+            txtCodigo.Text = "";
+            txtNombre.Text = "";
+            txtFechaCreacion.Text = "";
+            ddlUniversidad.SelectedIndex = 0;
+        }
+
+        public void cargarTabla()
+        {
+            DataTable dt = new DataTable();
+
+            dt.Columns.Add("codigo");
+            dt.Columns.Add("nombre");
+
+            ViewState["tablaFacultades"] = dt;
+        }
+
+        public bool sesionIniciada()
+        {
+            if (Session["Usuario"] != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         #endregion
